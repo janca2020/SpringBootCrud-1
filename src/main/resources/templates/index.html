@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container col-md-12">
+
+<div class="section" style="text-align: center; margin: 20px;">
+<a th:href="@{/new}" class="btn btn-info"  >Nuevo</a>
+</div>
+
+<div class="header">
+<table class="table">
+<thead>
+
+<tr>
+<th>ID</th>
+<th>NOMBRE</th>
+<th>TELEFONO</th>
+<th>ACCIONES</th>
+<tr>
+<thead>
+
+
+<tbody>
+<tr th:each="persona:${personas}">
+<td th:text="${persona.id}"></td>
+<td th:text="${persona.nombre}	" ></td>
+<td th:text ="${persona.telefono}"></td>
+<td>
+<a th:href="@{/editar/}+${persona.id}" class="btn btn-info" ><i class="far fa-edit"></i></a>
+<a class="btn btn-danger " th:onclick="eliminar([[${persona.id}]])"><i class="far fa-trash-alt" style="color: #fff;"></i></a>
+</td>
+<tr>
+</tbody>
+</table>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="funciones.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</body>
+</html>
